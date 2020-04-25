@@ -114,9 +114,35 @@
       </div><!-- article -->
 
       <div class="article-content">
-      <p>测试从MWeb发布文章到Github Pages</p>
+      <p>测试从MWeb发布文章到Github Pages <a href="https://github.com/cao7113/cao7113.github.io">Github Source</a></p>
 
-<p><a href="https://github.com/cao7113/cao7113.github.io">Github Source</a></p>
+<p>右键网站分类，选择 “复制发布脚本命令并打开终端（Terminal）...” 粘贴到剪切板的发布脚本如下：</p>
+
+<pre><code class="language-text">cd &quot;/Users/xxx/data/mweb/static-website/github-pages&quot; &amp;&amp; \
+sh &quot;/Users/xxx/Library/Containers/com.coderforart.MWeb3/Data/Library/Application Support/site_publish_logs/sh_15878256210134.sh&quot; &amp;&amp; \
+open &quot;&quot;
+</code></pre>
+
+<p>上面的发布 <code>site_publish_logs/sh_15878256210134.sh</code>就是在静态网站生成时配置的发布脚本</p>
+
+<pre><code class="language-text">➜  github-pages git:(master) ✗ cat &quot;/Users/xxx/Library/Containers/com.coderforart.MWeb3/Data/Library/Application Support/site_publish_logs/sh_15878256210134.sh&quot;
+#!/bin/sh
+
+# Please set the name and email.
+# Because MWeb can&#39;t get your github global setting.
+
+git config user.name “cao7113”
+git config user.email “cao7113@hotmail.com”
+
+git add --ignore-removal .
+git commit -m &quot;2020-04-25 23:35:32&quot;
+git push -u origin master
+</code></pre>
+
+<h2 id="toc_0">参考文章</h2>
+
+<p><a href="https://zh.mweb.im/how_to_use_shell_script.html">https://zh.mweb.im/how_to_use_shell_script.html</a><br/>
+<a href="https://pages.github.com/">https://pages.github.com/</a></p>
 
 
     
@@ -239,6 +265,8 @@ Theme used <a target="_blank" href="http://github.com">GitHub CSS</a>.</p>
 
 
 
+
+<script src="asset/prism.js"></script>
 
 
 <style type="text/css">
