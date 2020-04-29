@@ -116,7 +116,16 @@
       <div class="article-content">
       <p>测试从MWeb发布文章到Github Pages <a href="https://github.com/cao7113/cao7113.github.io">Github Source</a></p>
 
-<h2 id="toc_0">通过脚本自动发布过程探索</h2>
+<h2 id="toc_0">cao7113.github.io绑定到个人域名</h2>
+
+<p><a href="https://help.github.com/en/github/working-with-github-pages/configuring-a-custom-domain-for-your-github-pages-site">https://help.github.com/en/github/working-with-github-pages/configuring-a-custom-domain-for-your-github-pages-site</a></p>
+
+<p>1 在github站点settings里设置custom domain，会自动在仓库根目录添加CNAME文件<br/>
+2 域名dns配置CNAME记录<br/>
+3 测试 <code>dig www.shareup.me +nostats +nocomments +nocmd</code><br/>
+4 如果使用apex domain，测试 <code>dig shareup.me +noall +answer</code></p>
+
+<h2 id="toc_1">通过脚本自动发布过程探索</h2>
 
 <p>右键网站分类，选择 “复制发布脚本命令并打开终端（Terminal）...” 粘贴到剪切板的发布脚本如下：</p>
 
@@ -141,7 +150,7 @@ git commit -m &quot;2020-04-25 23:35:32&quot;
 git push -u origin master
 </code></pre>
 
-<p>打开命令行终端自动执行（免去站提命令的步骤）的方法，将下面的脚本放入<code>~/.zshrc</code>或<code>~/.bashrc</code>，参<a href="https://gist.github.com/bramblex/a6b12543a076e2c1fa5acecb95f51ead">https://gist.github.com/bramblex/a6b12543a076e2c1fa5acecb95f51ead</a></p>
+<p>打开命令行终端自动执行（免去粘贴命令步骤）的方法，将下面的脚本放入<code>~/.zshrc</code>或<code>~/.bashrc</code>，参<a href="https://gist.github.com/bramblex/a6b12543a076e2c1fa5acecb95f51ead">https://gist.github.com/bramblex/a6b12543a076e2c1fa5acecb95f51ead</a></p>
 
 <pre><code class="language-text">if (pbpaste  | grep -Eq  &#39;^cd &quot;[^&quot;]*&quot; &amp;&amp; sh &quot;[^&quot;]*/site_publish_logs/sh_\d*\.sh&quot; &amp;&amp; open &quot;[^&quot;]*&quot;&#39;) 
 then
@@ -174,7 +183,7 @@ fi
 
 <p>亲测有效！</p>
 
-<h2 id="toc_1">参考文章</h2>
+<h2 id="toc_2">参考文章</h2>
 
 <p><a href="https://zh.mweb.im/how_to_use_shell_script.html">https://zh.mweb.im/how_to_use_shell_script.html</a><br/>
 <a href="https://pages.github.com/">https://pages.github.com/</a></p>
