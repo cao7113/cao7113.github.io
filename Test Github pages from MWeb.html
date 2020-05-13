@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>
     
-  Archives - 草色青青
+  Test Github pages from MWeb - 草色青青
   
   </title>
   
@@ -92,33 +92,136 @@
 
  <script type="text/javascript">
   $(function(){
-    $('#menu_item_archives').addClass('is_active');
+    $('#menu_item_index').addClass('is_active');
   });
 </script>
 <div class="row">
   <div class="large-8 medium-8 columns">
-    <div id="archives-page-wrap">
-        <h1>Archives</h1>
-        <div class="markdown-body archives-wrap">
+      <div class="markdown-body article-wrap">
+       <div class="article">
           
-             
-                <h1>2020</h1>
-            
-            <div class="article">
-              <a class="clearlink" href="Test%20Github%20pages%20from%20MWeb.html">
-                <h1>Test Github pages from MWeb</h1>
-              </a>
-              <div class="read-more clearfix">
-                <span class="date">2020/04/25</span>
-                
-                 
-              </div>
-            </div><!-- article -->
+          <h1>Test Github pages from MWeb</h1>
+     
+        <div class="read-more clearfix">
+          <span class="date">2020/04/25</span>
 
+          
            
+         
+          <span class="comments">
+            
+
+            
+          </span>
+
+        </div>
+      </div><!-- article -->
+
+      <div class="article-content">
+      <p>测试从MWeb发布文章到Github Pages <a href="https://github.com/cao7113/cao7113.github.io">Github Source</a></p>
+
+<h2 id="toc_0">cao7113.github.io绑定到个人域名<a href="http://shareup.me">shareup.me</a></h2>
+
+<p><a href="https://help.github.com/en/github/working-with-github-pages/configuring-a-custom-domain-for-your-github-pages-site">https://help.github.com/en/github/working-with-github-pages/configuring-a-custom-domain-for-your-github-pages-site</a></p>
+
+<p>1 在github站点settings里设置custom domain，会自动在仓库根目录添加CNAME文件<br/>
+2 域名dns配置CNAME记录<br/>
+3 测试 <code>dig www.shareup.me +nostats +nocomments +nocmd</code>; 如果使用apex domain，测试 <code>dig shareup.me +noall +answer</code></p>
+
+<h2 id="toc_1">MWeb中通过脚本自动发布过程探索</h2>
+
+<p>右键网站分类，选择 “复制发布脚本命令并打开终端（Terminal）...” 粘贴到剪切板的发布脚本如下：</p>
+
+<pre><code class="language-text">cd &quot;/Users/xxx/data/mweb/static-website/github-pages&quot; &amp;&amp; \
+sh &quot;/Users/xxx/Library/Containers/com.coderforart.MWeb3/Data/Library/Application Support/site_publish_logs/sh_15878256210134.sh&quot; &amp;&amp; \
+open &quot;&quot;
+</code></pre>
+
+<p>上面的发布 <code>site_publish_logs/sh_15878256210134.sh</code>就是在静态网站生成时配置的发布脚本</p>
+
+<pre><code class="language-text">➜  github-pages git:(master) ✗ cat &quot;/Users/xxx/Library/Containers/com.coderforart.MWeb3/Data/Library/Application Support/site_publish_logs/sh_15878256210134.sh&quot;
+#!/bin/sh
+
+# Please set the name and email.
+# Because MWeb can&#39;t get your github global setting.
+
+git config user.name “xxx”
+git config user.email “xxx@gmail.com”
+
+git add --ignore-removal .
+git commit -m &quot;2020-04-25 23:35:32&quot;
+git push -u origin master
+</code></pre>
+
+<p>打开命令行终端自动执行（免去粘贴命令步骤）的方法，将下面的脚本放入<code>~/.zshrc</code>或<code>~/.bashrc</code>，参<a href="https://gist.github.com/bramblex/a6b12543a076e2c1fa5acecb95f51ead">https://gist.github.com/bramblex/a6b12543a076e2c1fa5acecb95f51ead</a></p>
+
+<pre><code class="language-text">if (pbpaste  | grep -Eq  &#39;^cd &quot;[^&quot;]*&quot; &amp;&amp; sh &quot;[^&quot;]*/site_publish_logs/sh_\d*\.sh&quot; &amp;&amp; open &quot;[^&quot;]*&quot;&#39;) 
+then
+    echo &quot;========== MWEB AUTO PUBLISH START ==========&quot; 
+    echo &quot;Runing command:&quot;
+    pbpaste
+
+    if pbpaste | sh
+    then
+
+        echo &quot;Success!&quot;
+        echo &quot;Clean pasteboard...&quot;
+        echo -n &quot;&quot; | pbcopy
+        echo &quot;==========  MWEB AUTO PUBLISH END  ==========&quot;
+        echo &quot;Close terminal 5s later...&quot;
+        sleep 5
+        exit
+
+    else
+
+        echo &quot;Failed!&quot;
+        echo &quot;Clean pasteboard...&quot;
+        echo -n &quot;&quot; | pbcopy
+        echo &quot;==========  MWEB AUTO PUBLISH END  ==========&quot;
+
+    fi
+
+fi
+</code></pre>
+
+<p>亲测有效！</p>
+
+<h2 id="toc_2">参考文章</h2>
+
+<p><a href="https://zh.mweb.im/how_to_use_shell_script.html">https://zh.mweb.im/how_to_use_shell_script.html</a><br/>
+<a href="https://pages.github.com/">https://pages.github.com/</a></p>
+
+
+    
+
+      </div>
+
+      <div class="row">
+        <div class="large-6 columns">
+        <p class="text-left" style="padding:15px 0px;">
+      
+        </p>
+        </div>
+        <div class="large-6 columns">
+      <p class="text-right" style="padding:15px 0px;">
+      
+      </p>
         </div>
       </div>
-  </div>
+      <div class="comments-wrap">
+        <div class="share-comments">
+          
+
+          
+
+          
+        </div>
+      </div>
+    </div><!-- article-wrap -->
+  </div><!-- large 8 -->
+
+
+
 
  <div class="large-4 medium-4 columns">
   <div class="hide-for-small">
@@ -209,6 +312,8 @@ Theme used <a target="_blank" href="http://github.com">GitHub CSS</a>.</p>
 
 
 
+
+<script src="asset/prism.js"></script>
 
 
 <style type="text/css">
