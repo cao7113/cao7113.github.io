@@ -4,3 +4,6 @@ version: '3'
 tasks:
   default: echo todo build self static site here
 
+  # Note that it can take up to 10 minutes for changes to your site to publish after you push the changes to GitHub.
+  # watch the actions: https://github.com/cao7113/cao7113.github.io/actions/workflows/pages/pages-build-deployment
+
